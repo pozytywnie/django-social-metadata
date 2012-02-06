@@ -1,0 +1,22 @@
+{% if social_metadata %}
+    {% if social_metadata.title %}
+        <meta property="og:title" content="{{ social_metadata.title }}"/> {# facebook #}
+        <meta itemprop="name" content="{{ social_metadata.title }}"> {# microdata #}
+    {% endif %}
+    {% if social_metadata.description %}
+        <meta property="og:description" content="{{ social_metadata.description }}"/> {# facebook #}
+        <meta itemprop="description" content="{{ social_metadata.description }}"> {# microdata #}
+    {% endif %}
+    {% if social_metadata.images %}
+        {% for image in social_metadata.images %}
+            <meta property="og:image" content="{{ image }}"/> {# facebook #}
+            <meta itemprop="image" content="{{ image }}">  {# microdata #}
+        {% endfor %}
+    {% endif %}
+    {% if social_metadata.url %}
+        <meta property="og:url" content="{{ social_metadata.url }}"/> {# facebook #}
+    {% endif %}
+    {% if social_metadata.site_name %}
+        <meta property="og:site_name" content="{{ social_metadata.site_name }}"/> {# facebook #}
+    {% endif %}
+{% endif %}
