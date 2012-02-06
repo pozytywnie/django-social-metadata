@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from os import path
-from setuptools import setup
+from setuptools import setup, find_packages
 
 def read(name):
     return open(path.join(path.dirname(__file__), name)).read()
@@ -15,7 +15,10 @@ setup(
     install_requires=(
         'django',
     ),
-    packages=[
-        'social_metadata',
-    ],
+    packages = find_packages(),
+    package_data = {
+        'social_metadata': [
+            'templates/*/*',
+        ],
+    }
 )
