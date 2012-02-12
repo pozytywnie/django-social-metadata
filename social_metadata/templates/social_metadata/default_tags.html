@@ -7,12 +7,10 @@
         <meta property="og:description" content="{{ social_metadata.description }}"/> {# facebook #}
         <meta itemprop="description" content="{{ social_metadata.description }}"> {# microdata #}
     {% endif %}
-    {% if social_metadata.images %}
-        {% for image in social_metadata.images %}
-            <meta property="og:image" content="{{ image }}"/> {# facebook #}
-            <meta itemprop="image" content="{{ image }}">  {# microdata #}
-        {% endfor %}
-    {% endif %}
+    {% for image in social_metadata.images %}
+        <meta property="og:image" content="{{ image }}"/> {# facebook #}
+        <meta itemprop="image" content="{{ image }}">  {# microdata #}
+    {% endfor %}
     {% if social_metadata.url %}
         <meta property="og:url" content="{{ social_metadata.url }}"/> {# facebook #}
     {% endif %}

@@ -11,7 +11,7 @@ class SocialDataMixin(object):
         return None
 
     def get_social_images(self):
-        return None
+        return []
 
     def get_social_description(self):
         return None
