@@ -8,13 +8,13 @@ class SocialDataMixin(object):
             return self.object.get_absolute_url()
 
     def get_social_title(self):
-        return None
+        return getattr(self, 'social_title', None)
 
     def get_social_images(self):
-        return []
+        return getattr(self, 'social_images', [])
 
     def get_social_description(self):
-        return None
+        return getattr(self, 'social_description', None)
 
     def get_social_site_name(self):
         if 'django.contrib.sites' in settings.INSTALLED_APPS:
@@ -22,7 +22,8 @@ class SocialDataMixin(object):
                 return Site.objects.get_current().name
             except Site.DoesNotExist:
                 pass
-        return getattr(settings, 'SOCIAL_METADATA_SITE_NAME', None)
+        global_default = getattr(settings, 'SOCIAL_METADATA_SITE_NAME', None)
+        return getattr(self, 'social_site_name', global_default)
 
     def get_social_metadata(self):
         return {
