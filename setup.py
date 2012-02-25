@@ -9,7 +9,7 @@ setup(
     name='django-social-metadata',
     description="django-social-metadata is a Django application that provides mixin and template to display social metadata for Facebook and Google+.",
     long_description=read("README.rst"),
-    version='1.1',
+    version='1.2',
     maintainer="Tomasz Wysocki",
     maintainer_email="tomasz@wysocki.info",
     install_requires=(
