@@ -10,6 +10,9 @@ class SocialDataMixin(object):
     def get_social_title(self):
         return getattr(self, 'social_title', None)
 
+    def get_social_type(self):
+        return getattr(self, 'social_type', None)
+
     def get_social_images(self):
         return getattr(self, 'social_images', [])
 

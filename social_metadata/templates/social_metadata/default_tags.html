@@ -3,6 +3,9 @@
         <meta property="og:title" content="{{ social_metadata.title }}"/> {# facebook #}
         <meta itemprop="name" content="{{ social_metadata.title }}"> {# microdata #}
     {% endif %}
+    {% if social_metadata.type %}
+        <meta property="og:type" content="{{ social_metadata.type }}"/> {# facebook #}
+    {% endif %}
     {% if social_metadata.description %}
         <meta property="og:description" content="{{ social_metadata.description }}"/> {# facebook #}
         <meta itemprop="description" content="{{ social_metadata.description }}"> {# microdata #}
