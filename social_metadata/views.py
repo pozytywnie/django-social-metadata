@@ -31,6 +31,7 @@ class SocialDataMixin(object):
     def get_social_metadata(self):
         return {
             'title': self.get_social_title(),
+            'type': self.get_social_type(),
             'images': self.get_social_images(),
             'description': self.get_social_description(),
             'url': self.get_social_url(),
