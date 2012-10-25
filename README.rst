@@ -48,14 +48,14 @@ views.py ::
     from django.conf.settings import MEDIA_URL
     from django.views.generic import DetailView
 
-    import social_metadata
+    import social_metadata.views
 
     class PhotoSocialDataMixin(social_metadata.views.SocialDataMixin):
         def get_social_title(self):
             return self.title
 
-        def get_social_image(self):
-            return urljoin(MEDIA_URL, self.image.path)
+        def get_social_images(self):
+            return [urljoin(MEDIA_URL, self.image.path)]
 
 
         def get_social_description(self):
