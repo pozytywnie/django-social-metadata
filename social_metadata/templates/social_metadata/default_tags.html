@@ -15,6 +15,13 @@
     {% for image in social_metadata.images %}
         <meta property="og:image" content="{{ image }}"/> {# facebook #}
         <meta itemprop="image" content="{{ image }}">  {# microdata #}
+        {% if social_metadata.twitter_card_type == 'gallery' %}
+            <meta name="twitter:image{{ forloop.counter0 }}" content="{{ image }}">
+        {% else %}
+            {% if forloop.first %}
+                <meta name="twitter:image:src" content="{{ image }}">
+            {% endif %}
+        {% endif %}
     {% endfor %}
     {% if social_metadata.url %}
         <meta property="og:url" content="{{ social_metadata.url }}"/> {# facebook #}
