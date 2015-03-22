@@ -57,9 +57,14 @@ views.py ::
         def get_social_images(self):
             return [urljoin(MEDIA_URL, self.image.path)]
 
-
         def get_social_description(self):
             return self.description
 
     class PhotoDetail(PhotoSocialDataMixin, DetailView):
          model = Photo
+
+
+Check https://github.com/pozytywnie/django-social-metadata/blob/master/social_metadata/views.py for other social metadata fields.
+
+If you want to use Twitter cards you have to provide all required fields for given type ( https://dev.twitter.com/cards/overview ),
+as well as submit a link in the validator at https://cards-dev.twitter.com/validator and witelist every type you want to use for given domain.
