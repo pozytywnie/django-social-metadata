@@ -2,6 +2,7 @@
     {% if social_metadata.title %}
         <meta property="og:title" content="{{ social_metadata.title }}"/> {# facebook #}
         <meta itemprop="name" content="{{ social_metadata.title }}"> {# microdata #}
+        <meta name="twitter:title" content="{{ social_metadata.title }}">
     {% endif %}
     {% if social_metadata.type %}
         <meta property="og:type" content="{{ social_metadata.type }}"/> {# facebook #}
@@ -9,6 +10,7 @@
     {% if social_metadata.description %}
         <meta property="og:description" content="{{ social_metadata.description }}"/> {# facebook #}
         <meta itemprop="description" content="{{ social_metadata.description }}"> {# microdata #}
+        <meta name="twitter:description" content="{{ social_metadata.description }}" />
     {% endif %}
     {% for image in social_metadata.images %}
         <meta property="og:image" content="{{ image }}"/> {# facebook #}
@@ -16,8 +18,18 @@
     {% endfor %}
     {% if social_metadata.url %}
         <meta property="og:url" content="{{ social_metadata.url }}"/> {# facebook #}
+        <meta name="twitter:url" content="{{ social_metadata.url }}" />
     {% endif %}
     {% if social_metadata.site_name %}
         <meta property="og:site_name" content="{{ social_metadata.site_name }}"/> {# facebook #}
+    {% endif %}
+    {% if social_metadata.twitter_site_username %}
+        <meta name="twitter:site" content="{{ social_metadata.twitter_site_username }}" />
+    {% endif %}
+    {% if social_metadata.twitter_card_type %}
+        <meta name="twitter:card" content="{{ social_metadata.twitter_card_type }}" />
+    {% endif %}
+    {% if social_metadata.twitter_creator %}
+        <meta name="twitter:creator" content="{{ social_metadata.twitter_creator }}" />
     {% endif %}
 {% endif %}
