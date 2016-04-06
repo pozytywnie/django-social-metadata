@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.sites.models import Site
 from django.views.generic.detail import BaseDetailView
 
 
@@ -22,6 +21,7 @@ class SocialDataMixin(object):
 
     def get_social_site_name(self):
         if 'django.contrib.sites' in settings.INSTALLED_APPS:
+            from django.contrib.sites.models import Site
             try:
                 return Site.objects.get_current().name
             except Site.DoesNotExist:
